@@ -1,5 +1,6 @@
 import React from "react";
 import "./DataTable.css";
+import { useNavigate } from "react-router-dom";
 
 const DataTable = ({ data }) => {
   const columns = [
@@ -12,10 +13,17 @@ const DataTable = ({ data }) => {
     "Salary",
     "Designation",
   ];
+  const { id } = data;
+  const navigate = useNavigate();
+  const navigateToDetail = (id) => {
+    navigate(`/detail/${id}`);
+    console.log(id);
+  };
+
   return (
     <div className="table-size">
       <div>
-        <table border={1} cellPadding={10} cellSpacing={30}>
+        <table border={1} cellPadding={5} cellSpacing={20}>
           <thead>
             <tr>
               {columns.map((heading) => (
@@ -26,9 +34,15 @@ const DataTable = ({ data }) => {
           <tbody>
             {data.slice(0, 10).map((item) => (
               <tr>
-                <button>
-                  <td> {item.id} </td>
-                </button>
+                <td>
+                  <button
+                    onClick={() => navigateToDetail(item.id)}
+                    className="btn"
+                  >
+                    {item.id}
+                  </button>
+                </td>
+
                 <td> {item.first_name} </td>
                 <td> {item.last_name} </td>
                 <td> {item.date_of_birth} </td>

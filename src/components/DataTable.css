@@ -1,3 +1,7 @@
 .table-size {
   margin-left: 50px;
 }
+.btn {
+  border: none;
+  cursor: pointer;
+}
