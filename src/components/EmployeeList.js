@@ -3,7 +3,6 @@ import DataTable from "./DataTable";
 
 const EmployeeList = () => {
   const [data, setData] = useState([]);
-  const [query, setQuery] = useState("");
 
   useEffect(() => {
     fetch(
@@ -12,14 +11,14 @@ const EmployeeList = () => {
       .then((res) => res.json())
       .then((json) => {
         setData(json);
-        console.log(json.slice(0, 10));
+        console.log(json.slice(0, 6));
       });
   }, []);
 
   return (
     <div>
-      <h3>Table list</h3>
-      <div>filter goes here</div>
+      <h1>Employee Table !!</h1>
+      <div>filter will come here</div>
       <div>
         <DataTable data={data}></DataTable>
       </div>

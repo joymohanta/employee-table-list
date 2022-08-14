@@ -6,12 +6,10 @@ import EmployeeList from "./components/EmployeeList";
 function App() {
   return (
     <div className="App">
-      <h1>Employee Table !!</h1>
-
       <Routes>
         <Route path="/" element={<EmployeeList></EmployeeList>}></Route>
         <Route
-          path="/detail/:id"
+          path="/:first_name"
           element={<EmployeeDetail></EmployeeDetail>}
         ></Route>
       </Routes>

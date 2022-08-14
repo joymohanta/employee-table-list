@@ -13,11 +13,11 @@ const DataTable = ({ data }) => {
     "Salary",
     "Designation",
   ];
-  const { id } = data;
+  const { first_name } = data;
   const navigate = useNavigate();
-  const navigateToDetail = (id) => {
-    navigate(`/detail/${id}`);
-    console.log(id);
+  const navigateToDetail = (first_name) => {
+    navigate(`/${first_name}`);
+    console.log(first_name);
   };
 
   return (
@@ -32,11 +32,13 @@ const DataTable = ({ data }) => {
             </tr>
           </thead>
           <tbody>
-            {data.slice(0, 10).map((item) => (
+            {data.slice(0, 6).map((item) => (
               <tr>
                 <td>
                   <button
-                    onClick={() => navigateToDetail(item.id)}
+                    onClick={() =>
+                      navigateToDetail(item.first_name.toLowerCase())
+                    }
                     className="btn"
                   >
                     {item.id}
