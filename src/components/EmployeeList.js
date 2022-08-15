@@ -3,6 +3,7 @@ import DataTable from "./DataTable";
 
 const EmployeeList = () => {
   const [data, setData] = useState([]);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     fetch(
@@ -15,12 +16,27 @@ const EmployeeList = () => {
       });
   }, []);
 
+  function search(rows) {
+    return rows.filter(
+      (row) =>
+        row.first_name.toLowerCase().indexOf(query) > -1 ||
+        row.last_name.toLowerCase().indexOf(query) > -1 ||
+        row.address.toLowerCase().indexOf(query) > -1
+    );
+  }
+
   return (
     <div>
       <h1>Employee Table !!</h1>
-      <div>filter will come here</div>
       <div>
-        <DataTable data={data}></DataTable>
+        <input
+          type="text"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+        />
+      </div>
+      <div>
+        <DataTable data={search(data)}></DataTable>
       </div>
     </div>
   );
