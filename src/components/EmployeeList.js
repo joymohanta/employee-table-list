@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "./DataTable";
+import "./EmployeeList.css";
 
 const EmployeeList = () => {
   const [data, setData] = useState([]);
@@ -27,10 +28,10 @@ const EmployeeList = () => {
 
   return (
     <div>
-      <h1>Employee Table !!</h1>
-      <div>
+      <div className="search-field">
         <label>Search or Filter: </label>
         <input
+          className="input-field"
           type="text"
           placeholder=" Name/Address"
           value={query}
@@ -39,6 +40,9 @@ const EmployeeList = () => {
       </div>
       <div>
         <DataTable data={search(data)}></DataTable>
+      </div>
+      <div>
+        <h3 className="footer">Click any Id to see the details !!</h3>
       </div>
     </div>
   );

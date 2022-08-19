@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Employee Table Live link
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[https://ornate-mousse-e8f257.netlify.app/]
 
 ## Available Scripts
 
