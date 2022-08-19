@@ -29,8 +29,10 @@ const EmployeeList = () => {
     <div>
       <h1>Employee Table !!</h1>
       <div>
+        <label>Search or Filter: </label>
         <input
           type="text"
+          placeholder=" Name/Address"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
         />
